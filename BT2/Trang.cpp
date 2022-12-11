@@ -1,9 +1,11 @@
 #include "Trang.h"
 
 Trang::Trang() {
-	BaiHat* A = new BaiHat;
+	BaiHat* Add1 = new BaiHat;
+	BaiHat* Add2 = new BaiHatDocQuyen;
 	ListNhac.resize(0);
-	ListNhac.push_back(A);
+	ListNhac.push_back(Add1);
+	ListNhac.push_back(Add2);
 }
 
 Trang::~Trang() {

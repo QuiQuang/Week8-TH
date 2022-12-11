@@ -56,5 +56,8 @@
     <ClInclude Include="TaiKhoanVip.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="ThoiGian.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

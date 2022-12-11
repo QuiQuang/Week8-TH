@@ -11,7 +11,9 @@ private:
 	vector<TaiKhoan*> ListAcc;
 
 public:
-	/*UngDung();*/
+	UngDung();
+	~UngDung();
+
 	bool AddAcc(TaiKhoan*);
 
 	bool CheckExist(string, string, bool&);
@@ -28,6 +30,7 @@ public:
 	void AddSongNew();
 
 	void Top5();
-
 	void TopType();
+
+	void OutDate(string);
 };

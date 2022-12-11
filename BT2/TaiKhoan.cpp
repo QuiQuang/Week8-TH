@@ -1,14 +1,17 @@
 #include "TaiKhoan.h"
 
-//TaiKhoan::TaiKhoan() {
-//	PlayList.clear();
-//	Username = "D";
-//	Password = "123123123";
-//}
-//
-//TaiKhoan::~TaiKhoan() {
-//	PlayList.clear();
-//}
+TaiKhoan::TaiKhoan() {
+	BaiHat* Add1 = new BaiHat;
+	BaiHat* Add2 = new BaiHatDocQuyen;
+	PlayList.push_back(Add1);
+	PlayList.push_back(Add2);
+	Username = "D";
+	Password = "123123123";
+}
+
+TaiKhoan::~TaiKhoan() {
+	PlayList.clear();
+}
 
 bool TaiKhoan::isAvailable() {
 	if (Password.length() < 8) return false;

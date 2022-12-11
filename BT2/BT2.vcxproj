@@ -140,6 +140,7 @@
     <ClInclude Include="BaiHatDocQuyen.h" />
     <ClInclude Include="TaiKhoan.h" />
     <ClInclude Include="TaiKhoanVip.h" />
+    <ClInclude Include="ThoiGian.h" />
     <ClInclude Include="Trang.h" />
     <ClInclude Include="UngDung.h" />
   </ItemGroup>

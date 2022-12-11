@@ -94,7 +94,7 @@ int main() {
 			system("cls");
 			switch (n) {
 			case 1: //Đăng nhập
-				do {
+				while (OMS.CheckExist(USER, PASS, isVIP) == false) {
 					cout << "---LOGIN---" << endl;
 					cout << "Nhap USERNAME : ";
 					rewind(stdin);
@@ -109,8 +109,11 @@ int main() {
 						system("cls");
 					}
 					else { //Chức năng của app
+						if (isVIP == true) {
+							OMS.OutDate(USER);
+						}
 						while (1) {
-							cout << endl << "-------------------" << endl;
+							cout << "-------------------" << endl;
 							system("pause");
 							system("cls");
 							cout << "---WELCOME TO OUR MUSIC---" << endl;
@@ -119,7 +122,7 @@ int main() {
 							cout << "+ 3 - Play SONG." << endl;
 							cout << "+ 4 - Create PLAYLIST." << endl;
 							cout << "+ 5 - Add SONG." << endl;
-							cout << "+ 6 - Show FULL SONG." << endl;	
+							cout << "+ 6 - Show FULL SONG." << endl;
 							cout << "+ 7 - Top 5 SONG." << endl;
 							if (isVIP == true) cout << "- 8 - Top TYPE." << endl;
 							cout << "- 9 - Back." << endl;
@@ -140,7 +143,7 @@ int main() {
 								cout << "---MY ACCOUNT---" << endl;
 								OMS.OuputAcc(USER, PASS);
 								cout << "-------------------" << endl;
-								cout << "---ENTER---";
+								cout << "---ENTER---" << endl;
 								break;
 
 							case 2: //Show lyric
@@ -216,7 +219,7 @@ int main() {
 							}
 						}
 					}
-				} while (OMS.CheckExist(USER, PASS, isVIP) == false);
+				}
 				break;
 
 			case 2: //Tạo tài khoản

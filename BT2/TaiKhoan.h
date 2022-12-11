@@ -17,8 +17,8 @@ private:
 	bool isAvailable();
 
 public:
-	//TaiKhoan();
-	//~TaiKhoan();
+	TaiKhoan();
+	virtual ~TaiKhoan();
 
 	virtual void Input();
 	virtual void Output();
@@ -29,5 +29,10 @@ public:
 
 	void UpdatePass(string);
 	void AddSong(BaiHat*);
+
+	virtual bool Out() { return false; }
+	virtual void SetAgain(int n) {}
+	virtual int GetFee() { return 0; }
+	virtual void OutputDay() {}
 };
 

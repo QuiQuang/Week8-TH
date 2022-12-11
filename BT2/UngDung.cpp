@@ -1,5 +1,17 @@
 #include "UngDung.h"
 
+UngDung::UngDung() {
+	TaiKhoan* Add1 = new TaiKhoan;
+	TaiKhoan* Add2 = new TaiKhoanVip;
+	ListAcc.push_back(Add1);
+	ListAcc.push_back(Add2);
+}
+
+UngDung::~UngDung() {
+	ListAcc.clear();
+	ListNhac.clear();
+}
+
 void Sort(vector<BaiHat*>& A) {
 	for (int i = 0; i < A.size() - 1; ++i)
 		for (int j = i + 1; j < A.size(); ++j)
@@ -65,7 +77,7 @@ bool UngDung::CheckExistSong(BaiHat* A) {
 bool UngDung::OutputLyric(string SongName) {
 	for (int i = 0; i < ListNhac.size(); ++i) {
 		if (SongName == ListNhac[i]->GetName()) {
-			cout << "=> Lyric : " << ListNhac[i]->GetLyric() << endl;
+			cout << "=> Lyric : " << ListNhac[i]->GetLyric();
 			return true;
 		}
 	}
@@ -133,7 +145,7 @@ void UngDung::AddSongNew() {
 	do {
 		cout << "- Nhap : ";
 		cin >> n;
-		if(n != 0 && n != 1) cout << "Loi.\n";
+		if (n != 0 && n != 1) cout << "Loi.\n";
 	} while (n != 0 && n != 1);
 	cout << "-------------------" << endl;
 	switch (n) {
@@ -155,11 +167,11 @@ void UngDung::AddSongNew() {
 		}
 		break;
 	}
-} 
+}
 
 void UngDung::Top5() {
 	Sort(ListNhac);
-	for (int i = 0; i < min(5,ListNhac.size()); ++i) {
+	for (int i = 0; i < min(5, ListNhac.size()); ++i) {
 		cout << ListNhac[i]->GetName() << " - " << ListNhac[i]->GetView() << endl;
 	}
 }
@@ -183,4 +195,24 @@ void UngDung::TopType() {
 	}
 	Sort(ListType);
 	cout << ListType[0]->GetName() << " : " << ListType[0]->GetView() << endl;
+}
+
+void UngDung::OutDate(string USER) {
+	TaiKhoanVip* A = new TaiKhoanVip;
+	for (int i = 0; i < ListAcc.size(); ++i)
+		if (USER == ListAcc[i]->GetUser()) {
+			if (ListAcc[i]->Out() == true) {
+				int n;
+				cout << "---GIA HAN---" << endl;
+				cout << "- Gia tien VIP/thang : " << ListAcc[i]->GetFee() << endl;
+				do {
+					cout << "- Xac nhan thanh toan : ";
+					cin >> n;
+					if (n < ListAcc[i]->GetFee()) cout << "Loi.\n";
+				} while (n < ListAcc[i]->GetFee());
+				cout << "- Thanh toan thanh cong, tai khoan duoc gia han den ";
+				ListAcc[i]->SetAgain(n / ListAcc[i]->GetFee());
+				ListAcc[i]->OutputDay();
+			}
+		}
 }

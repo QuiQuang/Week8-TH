@@ -1,6 +1,12 @@
 #include "BaiHatDocQuyen.h"
 
-BaiHatDocQuyen::BaiHatDocQuyen() : BaiHat() {
+BaiHatDocQuyen::BaiHatDocQuyen() {
+	Name = "Co Em";
+	Lyric = "----------";
+	Singer = "Madihu - LowG";
+	Type = NhacViet;
+	Year = 2019;
+	View = 10;
 	Value = 50000;
 }
 
